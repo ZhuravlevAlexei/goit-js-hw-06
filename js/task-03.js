@@ -14,13 +14,25 @@ const images = [
 ];
 
 const imgList = document.querySelector(".gallery");
+imgList.style.listStyle = "none";
+imgList.style.display = "flex";
+imgList.style.flexDirection = "column";
+imgList.style.justifyContent = "center";
+imgList.style.alignItems = "center";
+imgList.style.gap = "10px";
 
 const galMarkup = images
   .map(
-    ({ url, alt }) => `<li>
-  <img src="${url}" alt="${alt}" class="gallary-three">
+    ({ url, alt }) => `<li class = "js-img-tab">
+  <img src="${url}" alt="${alt}" width = "480" ">
   </li>`
   )
   .join("");
 
 imgList.insertAdjacentHTML("beforeend", galMarkup);
+
+const imageTabs = document.querySelectorAll(".js-img-tab");
+console.dir(imageTabs);
+imageTabs.forEach((element) => {
+  element.style.border = "2px solid red";
+});
